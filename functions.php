@@ -44,3 +44,13 @@ function comprobarSession(){
         header('Location: ' . RUTA);
     }
 }
+
+function numeroPaginas($post_por_pagina, $conexion){
+    $total_post = $conexion->prepare('SELECT FOUND_ROWS() AS total');
+    $total_post->execute();
+    $total_post = $total_post->fetch()['total'];
+
+    $numero_paginas = ceil($total_post / $post_por_pagina);
+    return $numero_paginas;
+
+}
