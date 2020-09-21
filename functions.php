@@ -4,13 +4,8 @@ function conexion($bd_config){
         //$conexion = new PDO('mysql:host=localhost;dbname='.$bd_config["basedatos"].'',$bd_config["usuario"],$bd_config["pass"]);
         $conexion = new PDO('mysql:host=localhost;dbname=blog','root','');
         return $conexion;
-
-    } catch (PDOException $e) {
-     
-        
-        
+    } catch (PDOException $e) {                     
         echo "Error: ". $e->getMessage();
-
      }
 }
 
@@ -27,7 +22,6 @@ function obtenerPost($post_por_pagina, $conexion){
     $sentencia = $conexion->prepare("SELECT SQL_CALC_FOUND_ROWS * FROM posts WHERE ID > 0 LIMIT $inicio, $post_por_pagina");
     $sentencia->execute();
     return $sentencia->fetchAll();
-
 }
 
 function obtenerPostPorId($conexion, $id){
@@ -35,7 +29,6 @@ function obtenerPostPorId($conexion, $id){
     $resultado->execute();
     $resultado = $resultado->fetchAll();
     return ($resultado) ? $resultado : false;
-
 }
 
 function paginaActual(){
@@ -45,4 +38,9 @@ function paginaActual(){
 function id_articulo($id){
     return (int)limpiarDatos($id);
 }
-?>
+
+function comprobarSession(){
+    if(!isset($_SESSION['admin'])){
+        header('Location: ' . RUTA);
+    }
+}

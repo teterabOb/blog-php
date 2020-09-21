@@ -2,6 +2,8 @@
 require 'admin/config.php';
 require 'functions.php';
 
+//comprobarSession();
+
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $usuario = limpiarDatos($_POST['usuario']);
     $password = limpiarDatos($_POST['password']);
@@ -33,8 +35,6 @@ if(isset($_POST['submit'])){
     }
 }
 */
-
-
 require 'views/login.view.php';
 
 ?>
