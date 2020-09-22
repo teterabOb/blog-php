@@ -1,6 +1,7 @@
 <?php
 require 'admin/config.php';
 require 'functions.php';
+session_start();
 
 
 $conexion = conexion($bd_config);
