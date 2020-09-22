@@ -2,9 +2,22 @@
 <!--  CSS  -->
 <link rel="stylesheet" href="../css/all.css">
 <link rel="stylesheet" href="../css/style.css">
+
+<link rel="stylesheet" href="../css/bootstrap.min.css">
 <!--  CSS  -->
 <link rel="stylesheet" href="css/all.css">
 <link rel="stylesheet" href="css/style.css">
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<script src="../js/jquery.min.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+
 
 <header class="contenedor">
     <nav class="menu">

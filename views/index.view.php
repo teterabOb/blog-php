@@ -10,7 +10,7 @@
 <body>
     <?php require 'header.php'; ?>
 
-    <div class="contenedor">
+    <div class="container">
         <?php foreach ($posts as $post) : ?>
             <div class="post">
                 <article>
@@ -31,7 +31,22 @@
         <?php endforeach; ?>
 
     </div>
+
+    <div class="container">
+        <?php foreach ($posts as $post) : ?>
+            <div class="card">
+                <h5 class="card-header"><a href="single.php?id=<?php echo $post['id']; ?>"><?php echo $post['titulo'] ?> </a></h5>
+                <div class="card-body">
+                    <h5 class="card-title"><?php echo $post['fecha']; ?></h5>
+                    <p class="card-text"><?php echo $post['texto']; ?> </p>
+                    <a href="single.php?id=<?php echo $post['id']; ?>" class="btn btn-primary">Continuar Leyendo ...</a>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
     <?php require 'paginacion.php'; ?>
+
+
 </body>
 
 </html>

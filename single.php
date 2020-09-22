@@ -20,11 +20,7 @@ if(!$post){
     header('Location: index.php');
 }
 
-
-
 $post = $post[0];
-
-print_r($post);
 
 require 'views/single.view.php'
 ?>
