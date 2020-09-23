@@ -19,7 +19,10 @@ function limpiarDatos($datos){
 
 function obtenerPost($post_por_pagina, $conexion){
     $inicio = (paginaActual() > 1) ? paginaActual() * $post_por_pagina - $post_por_pagina : 0;
-    $sentencia = $conexion->prepare("SELECT SQL_CALC_FOUND_ROWS * FROM posts WHERE ID > 0 LIMIT $inicio, $post_por_pagina");
+    $sentencia = $conexion->prepare("SELECT  SQL_CALC_FOUND_ROWS id,titulo,extracto,fecha,texto,IF(ISNULL(THUMB)=1,\"\",THUMB) AS THUMB
+                                    FROM    posts 
+                                    WHERE ID > 0 LIMIT $inicio, $post_por_pagina");
+    //$sentencia = $conexion->prepare("SELECT SQL_CALC_FOUND_ROWS * FROM posts WHERE ID > 0 LIMIT $inicio, $post_por_pagina");
     $sentencia->execute();
     return $sentencia->fetchAll();
 }

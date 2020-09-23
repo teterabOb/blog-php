@@ -9,17 +9,21 @@
                 <input type="hidden" name="id" value="<?php echo $post['titulo']; ?>">
                 <input class="form-control" type="text" name="titulo" placeholder="Titulo del Articulo" value="<?php echo $post['titulo']; ?>"> <br>
                 <input class="form-control" type="text" name="extracto" placeholder="Extracto del Articulo" value="<?php echo $post['extracto']; ?>"> <br>
-                <textarea class="form-control" name="texto" placeholder="Texto del Articulo"  cols="60" rows="20" value="<?php echo $post['texto']; ?>"></textarea> <br>
+                <textarea class="form-control" name="texto" placeholder="Texto del Articulo"  cols="60" rows="20" value="<?php echo $post['texto']; ?>"><?php echo $post['texto']; ?></textarea> <br>
 
-                <div class="custom-file mb-3">
-                <input class="custom-file-input" type="file" name="thumb">
+              
+                
+                <input type="file" name="thumb" id="">
                 <input type="hidden" name="thumb-guardada" value="<?php echo $post['thumb']; ?>">
-                    <label class="custom-file-label">Seleccionar archivo...</label>                    
-                </div>
+                             
+              
 
                 
+                <?php /*echo 'El thumb :'. gettype( $post['thumb']); */?>
+                <?php /*echo print_r($post); */?>
                 <input class="btn btn-primary" type="submit" value="Editar Articulo">
             </form>
+           
         </article>
     </div>
 </div>

@@ -18,6 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $thumb_guardada = limpiarDatos($_POST['thumb-guardada']);
     $thumb = $_FILES['thumb'];
 
+
+    
     if(empty($thumb['name'])){
         $thumb = $thumb_guardada;
     }else{
@@ -25,28 +27,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         move_uploaded_file($_FILES['thumb']['tpm_name'], $archivo_subido);
         $thumb = $_FILES['thumb']['name'];
     }
+    
 
     $statement = $conexion->prepare(
-        'UPDATE posts SET   titulo = :titulo,
+        "UPDATE posts SET   titulo = :titulo,
                             extracto = :extracto,
-                            texto = :texto
+                            texto = :texto,
                             thumb = :thumb
-        WHEW id = :id'
+        WHERE id = :id"
     );
 
-    $statement->execute(array(
+    //Using execute, this returns true or false
+    if($statement->execute(array(
          ':titulo' => $titulo,
          ':extracto' => $extracto,
          ':texto' => $texto, 
          ':thumb' => $thumb ,
-         ':id' => $id
-    ));
-    
+         ':id' => 1
+    ))){
+        echo 'ejecutada correctamente ';
+    }else{ 
+        echo 'no ejecutada';
+    }
+
     header('Location: index.php');
 
 }else{
+    
     $id_articulo = id_articulo($_GET['id']);
-
+ 
     if(empty($id_articulo)){
         header('Location: ' . RUTA . '/admin');
     }
@@ -58,6 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     $post = $post[0];
+    
 }
 require '../views/editar.view.php';
 
