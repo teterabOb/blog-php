@@ -17,15 +17,13 @@
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $post['fecha']; ?></h5>
                         <p class="card-text"><?php echo $post['texto']; ?> </p>
-                        <a href="single.php?id=<?php echo $post['id']; ?>" class="btn btn-primary">Continuar Leyendo ...</a>
+                        <a href="single.php?id=<?php echo $post['id']; ?>" class="btn btn-danger">Continuar Leyendo ...</a>
                     </div>
                 </div>
             <?php endforeach; ?>
         </div>
     </div>
     <?php require 'paginacion.php'; ?>
-
-
 </body>
 
 </html>
