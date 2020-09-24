@@ -9,20 +9,19 @@
 
 <body>
     <?php require 'header.php'; ?>
-
-
-
     <div class="container">
-        <?php foreach ($posts as $post) : ?>
-            <div class="card">
-                <h5 class="card-header"><a href="single.php?id=<?php echo $post['id']; ?>"><?php echo $post['titulo'] ?> </a></h5>
-                <div class="card-body">
-                    <h5 class="card-title"><?php echo $post['fecha']; ?></h5>
-                    <p class="card-text"><?php echo $post['texto']; ?> </p>
-                    <a href="single.php?id=<?php echo $post['id']; ?>" class="btn btn-primary">Continuar Leyendo ...</a>
+        <div class="post">
+            <?php foreach ($posts as $post) : ?>
+                <div class="card">
+                    <h5 class="card-header"><a class="text-dark" href="single.php?id=<?php echo $post['id']; ?>"><?php echo $post['titulo'] ?> </a></h5>
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo $post['fecha']; ?></h5>
+                        <p class="card-text"><?php echo $post['texto']; ?> </p>
+                        <a href="single.php?id=<?php echo $post['id']; ?>" class="btn btn-primary">Continuar Leyendo ...</a>
+                    </div>
                 </div>
-            </div>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
+        </div>
     </div>
     <?php require 'paginacion.php'; ?>
 
